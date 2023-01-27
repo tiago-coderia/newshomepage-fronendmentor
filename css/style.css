@@ -1,0 +1,231 @@
+:root {
+  --font-default: 'Inter', sans-serif !important;
+  --soft-orange: hsl(35, 77%, 62%);
+  --soft-red: hsl(5, 85%, 63%);
+  --off-white: hsl(36, 100%, 99%);
+  --grayish-blue: hsl(233, 8%, 79%);
+  --dark-grayish-blue: hsl(236, 13%, 42%);
+  --very-dark-blue: hsl(240, 100%, 5%);
+  --paragraph: 0.9375rem;
+  --normal: 400;
+  --bold: 700;
+  --extrabold: 800;
+  --animation: 0.2s ease-in-out all;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  color: var(--dark-grayish-blue);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 185px;
+  height: 50px;
+  text-transform: uppercase;
+  color: white;
+  background: var(--very-dark-blue);
+  font-weight: var(--bold);
+  font-family: var(--font-default);
+  transition: var(--animation);
+}
+
+button:hover {
+  background: var(--soft-red);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: var(--font-default), serif;
+}
+
+.container {
+  max-width: 1110px;
+  width: 100%;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 55px;
+}
+
+.nav__list {
+  display: flex;
+  gap: 40px;
+}
+
+.nav__links {
+  transition: var(--animation);
+}
+
+.nav__links:hover {
+  color: var(--soft-orange);
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-areas: "banner banner sidebar" "title texts sidebar" "footer footer footer";
+  column-gap: 15px;
+}
+
+.grid--banner {
+  grid-area: banner;
+  grid-column: banner;
+}
+
+.grid--title {
+  grid-area: title;
+  width: 350px;
+  height: 178px;
+  display: flex;
+  align-items: center;
+}
+
+.grid--title h1 {
+  font-size: 3.6rem;
+  font-weight: var(--extrabold);
+  line-height: 3.4rem;
+  padding-right: 40px;
+  color: var(--very-dark-blue);
+}
+
+.grid--texts {
+  grid-area: texts;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 0 10px;
+}
+
+.grid--texts p {
+  line-height: 1.5625rem;
+}
+
+.grid--sidebar {
+  grid-area: sidebar;
+  width: 350px;
+  background: var(--very-dark-blue);
+  padding: 20px;
+  max-height: 530px;
+}
+
+.grid--sidebar h2 {
+  color: var(--soft-orange);
+  font-size: 2.3rem;
+}
+
+.grid--sidebar .sidebar--infos {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.grid--sidebar .sidebar--infos .infos:first-of-type {
+  margin-top: 40px;
+}
+
+.grid--sidebar .sidebar--infos .infos--titulo {
+  color: var(--off-white);
+}
+
+.grid--sidebar .sidebar--infos .infos--titulo h3 {
+  color: white;
+  transition: var(--animation);
+}
+
+.grid--sidebar .sidebar--infos .infos--titulo h3:hover {
+  color: var(--soft-orange);
+}
+
+.grid--sidebar .sidebar--infos .infos--texto {
+  color: var(--dark-grayish-blue);
+  margin: 15px 0 35px 0;
+}
+
+.grid--sidebar .sidebar--infos .infos:not(:last-of-type) {
+  border-bottom: 1px solid var(--dark-grayish-blue);
+}
+
+.grid--footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 75px;
+}
+
+.grid--footer .footerbar {
+  display: flex;
+  max-width: 370px;
+}
+
+.grid--footer .footerbar--data {
+  padding: 0 25px;
+}
+
+.grid--footer .footerbar--number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--grayish-blue);
+}
+
+.grid--footer .footerbar--title {
+  margin: 10px 0;
+}
+
+.grid--footer .footerbar--title h3 {
+  color: var(--very-dark-blue);
+  transition: var(--animation);
+}
+
+.grid--footer .footerbar--title h3:hover {
+  color: var(--soft-red);
+}
+
+@media (max-width: 390px) {
+  body {
+    padding: 10px;
+  }
+  .grid {
+    grid-template-areas: "banner" "title" "texts" "sidebar" "footer ";
+    row-gap: 20px;
+  }
+  .grid--footer {
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: initial;
+  }
+  .grid--sidebar {
+    width: 100%;
+  }
+  button {
+    margin-top: 20px;
+  }
+}
